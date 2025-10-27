@@ -1,0 +1,63 @@
+# Conda environment for gradients/eccentricity/FC analyses and figures
+# Create with: conda env create -f environment.yml
+# Update with: conda env update -f environment.yml --prune
+name: neuro-manuscript
+channels:
+  - conda-forge
+dependencies:
+  # Core
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - statsmodels
+  - numba
+  - xarray
+  - joblib
+  - tqdm
+  - packaging
+
+  # Neuroimaging & connectivity
+  - nibabel
+  - nilearn
+  - brainspace
+  - bctpy
+
+  # Dimensionality reduction & clustering
+  - umap-learn
+  - pynndescent
+  - scikit-image
+  - networkx
+
+  # Plotting & viz
+  - matplotlib
+  - seaborn
+  - plotly
+  - vtk          # backend for 3D surface/mesh rendering
+  - pyvista      # Pythonic VTK interface for 3D/mesh viz
+
+  # Repro / notebooks (optional but handy)
+  - ipykernel
+  - jupyterlab
+  - nodejs
+  - pooch        # data/cache helper (used by several neuro libs)
+
+  - pip:
+      # Surface plotting & cortical viz
+      - surfplot
+      - neuromaps
+
+      # Riemannian geometry for covariance/FC & gradients
+      - pyriemann
+
+      # Stats helpers (rmANOVA, effect sizes, etc.)
+      - pingouin
+
+      # RSA models & utilities
+      - rsatoolbox
+
+      # Colormaps / aesthetics
+      - cmasher
+      - palettable
